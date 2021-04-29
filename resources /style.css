@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab&display=swap');
+
+:root{
+  --background: rgb(165, 125, 125);
+  --headings: font-family: 'Roboto Slab', serif;
+}
+
+html, *, *::before, *::after{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  padding: 0;
+  margin: 0;
+  background: rgb(230, 230, 230);
+}
+
+/*
+====================================
+          HEADER STYLING
+====================================
+*/
+
+header{
+  font-family: var(--headings);
+  background: var(--background);
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.logo{
+ height: 5em;
+ padding: 0;
+ margin: 0;
+
+}
+
+/*
+====================================
+          NAV BAR
+====================================
+*/
+.nav-toggle{
+  display:none;
+  }
+  
+  .nav-toggle-label{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 1em;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  
+  }
+  
+  .nav-toggle-label span,
+  .nav-toggle-label span::before,
+  .nav-toggle-label span::after{
+  display: block;
+  background: rgb(0, 0, 0);
+  height: 2px;
+  width: 1.5em;
+  border-radius: 2px;
+  position: relative;
+  }
+  
+  .nav-toggle-label span::before,
+  .nav-toggle-label span::after{
+    content: '';
+    position: absolute;
+  }
+  
+  .nav-toggle-label span::before{
+  bottom: 6px;
+  }
+  
+  
+  .nav-toggle-label span::after{
+    top: 6px;
+  }
+  
+  .nav-toggle:checked ~ nav{
+    transform: scale(1,1);
+  }
+  
+  .nav-toggle:checked ~ nav a {
+    opacity: 1;
+    transition: opacity 150ms ease-in-out 250ms;
+  }
+  
+  nav{
+    position: absolute;
+    text-align: left;
+    top: 100%;
+    width: 100%;
+    background: var(--background);
+    transform-origin: top;
+    transform: scale(1,0);
+    transition: transform 300ms ease-in-out ;
+  }
+  
+  nav ul{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  
+  }
+  
+  nav li{
+    margin-bottom: 1em;
+    margin-left: 1em;
+  }
+  
+  nav a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+    }
+  
+  nav a:hover{
+    color: grey;
+  }
+  
+  /* 
+  =============
+  Media Queries 
+  =============
+  */
+  
+  @media screen and (min-width: 800px){
+  
+    .nav-toggle-label {
+      display: none;
+    }
+  
+    header {
+      display: grid;
+      grid-template-columns:  1fr auto minmax(600px, 3fr) 1fr;
+    }
+  
+  .logo{
+    grid-column: 2 / 3;
+  }
+  
+  nav{
+    all: unset;
+    grid-column: 3 / 4;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-decoration: none;
+    list-style-type: none;
+  }
+  
+  nav a {
+    opacity: 1;
+  }
+  
+  nav ul {
+    display: flex;
+    justify-content: flex-end;
+    border: 1px solid red;
+  }
+  
+  nav li{
+    margin-left: 3em;
+    margin-bottom: 0;
+    font-size: 0.75em;
+  }
+  }
+  
+  /*
+============
+HERO SECTION
+============
+*/
+
+.hero {
+  opacity: 0.6;
+  background-color: #9aa8a5;
+  height: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 6em;
+  border: 1px solid black;
+
+}
+
+.tagline{ 
+ text-align: left;
+ padding-left: 2em;
+ font-size: 1.5em;
+ width: 50%;
+}
